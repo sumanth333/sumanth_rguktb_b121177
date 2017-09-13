@@ -86,17 +86,28 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) 
 	{
-		
+		int length = students.length-1,i=0,j=0;
+		Student[] students1 = new Student[length];
+		while(i<length)
+		{
+			if(j==index)
+			{
+				j++;
+				continue;
+			}
+			students1[i] = students[j];
+			i++;j++;
+		}
+		students = students1;
 	}
 
 	@Override
 	public void remove(Student student) 
 	{
-
 	}
 
 	@Override
-	public void removeFromIndex(int index) 
+	public void removeFromIndex(int index)
 	{
 	
 
@@ -106,6 +117,8 @@ public class StudentGroup implements StudentArrayOperation {
 	public void removeFromElement(Student student) 
 	{
 	
+
+
 	}
 
 	@Override
