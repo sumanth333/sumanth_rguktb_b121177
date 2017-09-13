@@ -63,7 +63,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student == null)
 			throw new IllegalArgumentException();
 		else
-			students[0] = student;
+			add(student,0);
 	}
 
 	@Override
@@ -72,7 +72,14 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student == null)
 			throw new IllegalArgumentException();
 		else
-			students[students.length-1] = student;
+		{
+			Student student1[] = new Student[students.length+1];
+			for(int i=0;i<students.length;++i)
+				student1[i] = students[i];
+			student1[student1.length-1] = student;
+
+			students = student1;
+		}
 	}
 
 	@Override
@@ -81,7 +88,17 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student == null || index<0 || index>=students.length)
 			throw new IllegalArgumentException();
 		else
-			students[index] = student;
+		{
+			Student student1[] = new Student[students.length+1];
+			student1[index] = student;
+
+			for(int i=0;i<index;++i)
+				student1[i] = students[i];
+			for(int i=index;i<students.length;++i)
+				student1[i+1] = students[i];
+
+			students = student1;
+		}
 	}
 
 	@Override
