@@ -104,7 +104,20 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student)  throws IllegalArgumentException
 	{
-		
+		if(students == null)
+			throw new IllegalArgumentException();
+
+		int length = students.length,index = length;
+		for(int i=0;i<length;++i)
+			if(students[i].equals(student))
+			{
+				index = i;break;
+			}
+
+		if(index == length)
+			throw new IllegalArgumentException("Student not exist");
+		else
+			remove(index);
 
 	}
 
@@ -127,9 +140,16 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromElement(Student student) throws IllegalArgumentException
 	{
+		if(student==null)throw new IllegalArgumentException();
 	
-		
-
+		int index=-1;
+		for(int i=0;i<students.length;++i)
+			if(students[i].equals(student))
+			{
+				index = i;break;
+			}
+		if(index!=-1)
+			removeFromIndex(index);
 	}
 
 	@Override
