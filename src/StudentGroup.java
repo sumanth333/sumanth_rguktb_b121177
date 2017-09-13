@@ -156,16 +156,47 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		if(index<0 || index >=students.length)
+			throw new IllegalArgumentException();
+
+		Student student1[] = new Student[students.length-index];
+		int j=0;
+		for(int i=index;i<students.length;++i)
+			student1[j++] = students[i];
+
+		students = student1;
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException();
+		int index=-1;
+		for(int i=0;i<students.length;++i)
+			if(students[i].equals(student))
+			{
+				index = i;break;
+			}
+		if(index!=-1)
+			removeToIndex(index);
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		for (int i=0;i<students.length ;++i ) {
+			for (int j=0;j<students.length-i-1 ;++j )
+			{
+				if(students[j].compareTo(students[j+1])>0)
+				{
+				Student temp=students[j];
+				students[j]=students[j+1];
+				students[j+1]=temp;
+			}
+			}	
+			
+		}
 	}
 
 	@Override
