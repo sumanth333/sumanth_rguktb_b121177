@@ -83,7 +83,7 @@ public class StudentGroup implements StudentArrayOperation {
 			students[index] = student;
 	}
 
-	@Override
+	/*@Override
 	public void remove(int index) throws IllegalArgumentException
 	{
 		int length = students.length-1,i=0,j=0;
@@ -120,7 +120,7 @@ public class StudentGroup implements StudentArrayOperation {
 			remove(index);
 
 	}
-
+*/
 	@Override
 	public void removeFromIndex(int index) throws IllegalArgumentException
 	{
