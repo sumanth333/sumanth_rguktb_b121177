@@ -86,26 +86,24 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) throws IllegalArgumentException
 	{
-		/*int length = students.length-1,i=0,j=0;
-		Student[] students1 = new Student[length];
-		while(i<length)
+		int length = students.length,j=0;
+		Student[] students1 = new Student[length-1];
+		
+		for(int i=0;i<length ;++i)
 		{
-			if(j==index)
-			{
-				j++;
+			if(i==index)
 				continue;
-			}
-			students1[i] = students[j];
-			i++;j++;
+
+			students1[j++] = students[i];
 		}
-		students = students1;*/
-		return;
+
+		students = students1;
 	}
 
 	@Override
 	public void remove(Student student)  throws IllegalArgumentException
 	{
-		/*if(students == null)
+		if(students == null)
 			throw new IllegalArgumentException();
 
 		int length = students.length,index = length;
@@ -118,8 +116,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(index == length)
 			throw new IllegalArgumentException("Student not exist");
 		else
-			remove(index);*/
-		return;
+			remove(index);
 
 	}
 
