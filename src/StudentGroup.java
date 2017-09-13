@@ -124,16 +124,37 @@ public class StudentGroup implements StudentArrayOperation {
 		if(index<0 || index >=students.length)
 			throw new IllegalArgumentException();
 
-		Student[] students1 = new Student[1];
-		students1[0] = students[index];
+		Student student1[] = new Student[index+1];
 
-		students = students1;
+		for(int i=0;i<=index;++i)
+			student1[i] = students[i];
+
+		students = student1;
 
 	}
 
 	@Override
-	public void removeFromElement(Student student) {
-		// Add your implementation here
+	public void removeFromElement(Student student) throws IllegalArgumentException
+	{
+		if(students == null)
+			throw new IllegalArgumentException();
+
+		int length = students.length,index = length;
+		for(int i=0;i<length;++i)
+			if(students[i] == (student))
+			{
+				index = i;break;
+			}
+
+		Student[] students1 = new Student[index+1];
+		
+		for(int i=0;i<=index;++i)
+			students1[i] = students[i];
+
+		students = students1;
+
+
+
 	}
 
 	@Override
