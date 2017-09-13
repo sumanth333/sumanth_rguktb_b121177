@@ -34,6 +34,7 @@ public class StudentGroup implements StudentArrayOperation {
 	{
 		if(students==null)
 			throw new IllegalArgumentException();
+		this.students=students;
 	}
 
 	@Override
@@ -49,7 +50,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudent(Student student, int index) throws IllegalArgumentException
 	{
-		if(students == null || index<0 || index>=students.length)
+		if(student == null || index<0 || index>=students.length)
 			throw new IllegalArgumentException();
 		else
 			students[index] = student;
@@ -59,7 +60,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) throws IllegalArgumentException
 	{
-		if(students == null)
+		if(student == null)
 			throw new IllegalArgumentException();
 		else
 			students[0] = student;
@@ -68,7 +69,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addLast(Student student) throws IllegalArgumentException
 	{
-		if(students == null)
+		if(student == null)
 			throw new IllegalArgumentException();
 		else
 			students[students.length-1] = student;
@@ -77,7 +78,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void add(Student student, int index) throws IllegalArgumentException
 	{
-		if(students == null || index<0 || index>=students.length)
+		if(student == null || index<0 || index>=students.length)
 			throw new IllegalArgumentException();
 		else
 			students[index] = student;
@@ -86,6 +87,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) throws IllegalArgumentException
 	{
+		if(index<0 || index>=students.length)throw new IllegalArgumentException();
 		int length = students.length,j=0;
 		Student[] students1 = new Student[length-1];
 		
@@ -103,7 +105,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student)  throws IllegalArgumentException
 	{
-		if(students == null)
+		if(student == null)
 			throw new IllegalArgumentException();
 
 		int length = students.length,index = length;
