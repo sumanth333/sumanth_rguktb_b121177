@@ -109,7 +109,7 @@ public class StudentGroup implements StudentArrayOperation {
 
 		int length = students.length,index = length;
 		for(int i=0;i<length;++i)
-			if(students[i].equals(student))
+			if(students[i] == (student))
 			{
 				index = i;break;
 			}
@@ -123,7 +123,7 @@ public class StudentGroup implements StudentArrayOperation {
 	{
 		if(index<0 || index >=students.length)
 			throw new IllegalArgumentException();
-		
+
 		Student[] students1 = new Student[1];
 		students1[0] = students[index];
 
